@@ -84,7 +84,7 @@ class SettingsList extends React.Component {
       return (
         <View key={'group_' + index}>
           <Text style={[{margin:5},group.header.headerStyle]} numberOfLines={group.header.headerNumberOfLines} ellipsizeMode="tail" ref={group.header.headerRef}>{group.header.headerText}</Text>
-          <View style={{borderTopWidth:1, borderBottomWidth:1, borderColor: this.props.borderColor}}>
+          <View style={{borderTopWidth:0, borderBottomWidth:0, borderColor: this.props.borderColor}}>
             {group.items.map((item, index) => {
               return this._itemView(item,index, group.items.length);
             })}
@@ -172,7 +172,7 @@ class SettingsList extends React.Component {
         case 'Bottom' : border = {borderTopWidth:1, borderColor: this.props.borderColor}; break;
       }
     } else {
-      border = index === max-1 ? {borderWidth:0} : {borderBottomWidth:1, borderColor: this.props.borderColor};
+      border = index === max ? {borderWidth:0} : {borderBottomWidth:1, borderColor: this.props.borderColor};
     }
 
     let titleInfoPosition = item.titleInfoPosition ? item.titleInfoPosition : this.props.defaultTitleInfoPosition;
