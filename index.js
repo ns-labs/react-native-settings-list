@@ -27,7 +27,7 @@ class SettingsList extends React.Component {
     defaultTitleStyle: Text.propTypes.style,
     defaultTitleInfoPosition: PropTypes.string,
     scrollViewProps: PropTypes.object,
-    borderBottomWidth:PropTypes.object,
+    borderBottomWidth:PropTypes.number,
   };
 
   static defaultProps ={
