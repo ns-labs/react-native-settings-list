@@ -96,7 +96,7 @@ class SettingsList extends React.Component {
       let items;
       if (group.items.length > 0) {
         items = (
-          <View style={{borderTopWidth:1, borderBottomWidth:1, borderColor: this.props.borderColor}}>
+          <View style={{borderTopWidth:0, borderBottomWidth:0, borderColor: this.props.borderColor}}>
             {group.items.map((item, index) => {
               return this._itemView(item,index, group.items.length);
             })}
