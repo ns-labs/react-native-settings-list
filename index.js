@@ -136,15 +136,18 @@ class SettingsList extends React.Component {
 
   _itemTitleBlock(item, index, position) {
     return ([
-      <Text
-          key={'itemTitle_' + index}
-          style={[
-            item.titleStyle ? item.titleStyle : this.props.defaultTitleStyle,
-            position === 'Bottom' ? null : styles.titleText
-          ]}>
-          {item.title}
-      </Text>,
-      item.titleInfo ?
+        <View style={{flexDirection: 'row'}}>
+            <Text
+                key={'itemTitle_' + index}
+                style={[
+                    item.titleStyle ? item.titleStyle : this.props.defaultTitleStyle,
+                    position === 'Bottom' ? null : styles.titleText
+                ]}>
+                {item.title}
+            </Text>
+            {item.righTitleIcon ? item.righTitleIcon : null}
+        </View>,
+        item.titleInfo ?
         <Text
             key={'itemTitleInfo_' + index}
             style={[
@@ -257,7 +260,6 @@ const styles = StyleSheet.create({
     flexDirection:'row'
   },
   titleText: {
-    flex:1,
     alignSelf:'center'
   },
   rightSide: {
