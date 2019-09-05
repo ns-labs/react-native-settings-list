@@ -136,7 +136,7 @@ class SettingsList extends React.Component {
 
   _itemTitleBlock(item, index, position) {
     return ([
-        <View style={{flexDirection: 'row'}}>
+        <View style={[{flexDirection: 'row', alignItems: 'center'}, position === 'Bottom' ? null : {flex: 1} ]}>
             <Text
                 key={'itemTitle_' + index}
                 style={[
