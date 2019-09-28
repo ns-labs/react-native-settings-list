@@ -151,6 +151,7 @@ class SettingsList extends React.Component {
         <Text
             key={'itemTitleInfo_' + index}
             style={[
+                {paddingBottom: 3},
               item.rightSideStyle ? item.rightSideStyle
               :
                 position === 'Bottom' ? null : styles.rightSide,
