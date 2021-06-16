@@ -18,7 +18,7 @@ import {
 
 const ARROW_ICON = require('./img/icon-arrow-settings.png');
 
-class SettingsList extends React.Component {
+export default class SettingsList extends React.Component {
   static propTypes = {
     backgroundColor: PropTypes.string,
     borderColor: PropTypes.string,
