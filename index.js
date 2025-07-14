@@ -17,6 +17,13 @@ import {
 const ARROW_ICON = require('./img/icon-arrow-settings.png');
 
 export default class SettingsList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.scrollViewRef = React.createRef();
+    this.userNameInputRef = React.createRef();
+    this.passwordInputRef = React.createRef();
+  }
+
   static defaultProps ={
     backgroundColor: 'white',
     borderColor: 'black',
@@ -59,7 +66,7 @@ export default class SettingsList extends React.Component {
 
   render(){
     return (
-      <ScrollView {...this.props.scrollViewProps} ref="_scrollView">
+      <ScrollView {...this.props.scrollViewProps} ref={this.scrollViewRef}>
         {this._getGroups().map((group, index) => {
           return this._groupView(group, index);
         })}
@@ -178,8 +185,8 @@ export default class SettingsList extends React.Component {
               <View style={{paddingLeft:5,flexDirection:'column',flex:1}}>
                 <View style={{borderBottomWidth:1,borderColor:this.props.borderColor}}>
                   <TextInput
-                    ref="UserNameInputBlock"
-                    onSubmitEditing={() => this.refs.PasswordInputBlock.focus()}
+                    ref={this.userNameInputRef}
+                    onSubmitEditing={() => this.passwordInputRef.current.focus()}
                     style={{flex:1,height:30, borderBottomWidth:1}}
                     placeholder = "username"
                     {...item.authPropsUser}
@@ -187,7 +194,7 @@ export default class SettingsList extends React.Component {
                 </View>
                 <View>
                   <TextInput
-                    ref="PasswordInputBlock"
+                    ref={this.passwordInputRef}
                     style={{flex:1,height:30}}
                     placeholder = "password"
                     secureTextEntry={true}
