@@ -1,7 +1,6 @@
 'use strict'
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
 
 import {
@@ -12,24 +11,12 @@ import {
   ScrollView,
   TextInput,
   Switch,
-  Image,
-  ViewPropTypes
+  Image
 } from 'react-native';
 
 const ARROW_ICON = require('./img/icon-arrow-settings.png');
 
 export default class SettingsList extends React.Component {
-  static propTypes = {
-    backgroundColor: PropTypes.string,
-    borderColor: PropTypes.string,
-    defaultItemSize: PropTypes.number,
-    underlayColor: PropTypes.string,
-    defaultTitleStyle: Text.propTypes.style,
-    defaultTitleInfoPosition: PropTypes.string,
-    scrollViewProps: PropTypes.object,
-    borderBottomWidth:PropTypes.number,
-  };
-
   static defaultProps ={
     backgroundColor: 'white',
     borderColor: 'black',
@@ -278,12 +265,6 @@ const styles = StyleSheet.create({
  * Optional Header for groups
  */
 SettingsList.Header = createReactClass({
-  propTypes: {
-    headerText: PropTypes.string,
-    headerStyle: Text.propTypes.style,
-    headerRef: PropTypes.func,
-    headerNumberOfLines: PropTypes.number,
-  },
   getDefaultProps() {
     return {
       headerNumberOfLines: 1,
@@ -301,102 +282,6 @@ SettingsList.Header = createReactClass({
  * Individual Items in the Settings List
  */
 SettingsList.Item = createReactClass({
-  propTypes: {
-    /**
-     * Title being displayed
-     */
-    title: PropTypes.string,
-    titleStyle: Text.propTypes.style,
-    /**
-     * Icon displayed on the left of the settings item
-     */
-    icon: PropTypes.node,
-
-    /**
-     * Item Box Style
-     */
-    itemBoxStyle : ViewPropTypes.style,
-    /**
-     * Title Box Style
-     */
-    titleBoxStyle: ViewPropTypes.style,
-    /**
-     * Right Side Style
-     */
-    rightSideStyle: ViewPropTypes.style,
-    /**
-     * Editable Right Side Style
-     */
-    editableTextStyle: Text.propTypes.style,
-
-    /**
-     * Individual item width.  Can be globally set in the parent.  Will become deprecated
-     */
-    itemWidth: PropTypes.number,
-    /**
-     * Allows for the item to become an auth item
-     */
-    isAuth: PropTypes.bool,
-    authPropsUser: PropTypes.object,
-    authPropsPW: PropTypes.object,
-    /**
-     * Individual background color. Can be globally set in the parent. Will become Deprecated
-     */
-    backgroundColor: PropTypes.string,
-
-    /**
-     * Individual underlay click color.  Can be globally set in the parent.
-     */
-    underlayColor: PropTypes.string,
-    /**
-     * Item on press callback.
-     */
-    onPress: PropTypes.func,
-    /**
-     * Item on long press callback.
-     */
-    onLongPress: PropTypes.func,
-    /**
-     * Enable or disable the > arrow at the end of the setting item.
-     */
-    hasNavArrow: PropTypes.bool,
-    arrowIcon: PropTypes.node,
-
-    arrowStyle: Image.propTypes.style,
-    /**
-     * Enable or disable a Switch component
-     */
-    hasSwitch: PropTypes.bool,
-    /**
-     * Switch state
-     */
-    switchState: PropTypes.bool,
-    /**
-     * Switch props
-     */
-    switchProps: PropTypes.object,
-    /**
-     * On value change callback
-     */
-    switchOnValueChange: PropTypes.func,
-    /**
-     * Right side information on the setting item
-     */
-    titleInfo: PropTypes.string,
-    titleInfoStyle: Text.propTypes.style,
-    /**
-     * If 'Bottom', info is placed beneath the title
-     */
-    titleInfoPosition: PropTypes.string,
-    /**
-     * Right side content
-     */
-    rightSideContent: PropTypes.node,
-    /* Gives opens to hide specific borders */
-    borderHide: PropTypes.oneOf(['Top', 'Bottom', 'Both']),
-
-    itemRef: PropTypes.func,
-  },
   getDefaultProps(){
     return {
       hasNavArrow: true
